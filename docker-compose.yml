@@ -7,10 +7,10 @@ services:
       dockerfile: Dockerfile
     container_name: ${COMPOSE_PROJECT_NAME}_lamp_app
     ports:
-      - "8003:80"   # lamp's default port mapped to 8081 on the host
+      - "8003:80" 
     environment:
       APP_ENV: local
-      APP_KEY: ${APP_KEY}   # Make sure to set a key (run `php artisan key:generate`)
+      APP_KEY: ${APP_KEY}
       DB_HOST: db
       DB_PORT: 3306
       DB_DATABASE: lamp
