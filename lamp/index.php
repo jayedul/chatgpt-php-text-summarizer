@@ -15,14 +15,14 @@
 	<body>
 		<header class="text-center">
 			<br/>
-			<h2>Content Summerizer</h2>
+			<h2>Content Summarizer</h2>
 			<p>
 				Write or paste any type of text contents and click Summarize.
 			</p>
 		</header>
 		<br/>
 		<br/>
-		<main id="summerizer" class="container" style="max-width: 600px;">
+		<main id="summarizer" class="container" style="max-width: 600px;">
 			<div>
 				<textarea id="content-input" type="text" class="form-control" placeholder="Paste any article here.." style="height: 200px; resize: both;"></textarea>
 			</div>

@@ -1,9 +1,9 @@
 window.jQuery(document).ready(function($){
 	
-	const btn = $('#summerizer button');
-	const content = $('#summerizer textarea');
-	const notice = $('#summerizer #notice');
-	const output = $('#summerizer #output');
+	const btn = $('#summarizer button');
+	const content = $('#summarizer textarea');
+	const notice = $('#summarizer #notice');
+	const output = $('#summarizer #output');
 
 	btn.click(function(){
 
