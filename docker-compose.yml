@@ -1,0 +1,52 @@
+version: '3.8'
+
+services:
+  lamp:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ${COMPOSE_PROJECT_NAME}_lamp_app
+    ports:
+      - "8003:80"   # lamp's default port mapped to 8081 on the host
+    environment:
+      APP_ENV: local
+      APP_KEY: ${APP_KEY}   # Make sure to set a key (run `php artisan key:generate`)
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_DATABASE: lamp
+      DB_USERNAME: lamp
+      DB_PASSWORD: lamp
+      NODE_ENV: development
+    volumes:
+      - ./lamp:/var/www/html
+    depends_on:
+      - db
+      - phpmyadmin
+
+  db:
+    image: mysql:8.0
+    container_name: ${COMPOSE_PROJECT_NAME}_mysql
+    restart: always
+    environment:
+      MYSQL_DATABASE: lamp
+      MYSQL_USER: lamp
+      MYSQL_PASSWORD: lamp
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - db_data:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: ${COMPOSE_PROJECT_NAME}_phpmyadmin
+    restart: always
+    ports:
+      - "8084:80"
+    environment:
+      PMA_HOST: db
+      PMA_USER: root
+      PMA_PASSWORD: root
+    depends_on:
+      - db
+
+volumes:
+  db_data:

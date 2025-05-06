@@ -1,0 +1,18 @@
+.DS_STORE
+node_modules/
+svn-push/
+dist/*
+!dist/libraries/
+vendor/
+build/
+*.zip
+languages/
+lamp/env.php
+
+# Cypress
+.wp-env.override.json
+artifacts
+tests/cypress/downloads
+tests/cypress/screenshots
+tests/cypress/videos
+tests/cypress/reports
